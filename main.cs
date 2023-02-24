@@ -49,14 +49,11 @@ namespace ScreenCapture
             btStart.Enabled = !timer.Enabled;
             edInterval.Enabled = !timer.Enabled;
             btStop.Enabled = timer.Enabled;
+            miStart.Enabled = !timer.Enabled;
+            miStop.Enabled = timer.Enabled;
         }
 
-        public fmMain()
-        {
-            InitializeComponent();
-        }
-
-        private void btStart_Click(object sender, EventArgs e)
+        private void StartCapture()
         {
             if (edDirectory.Text == "")
                 MessageBox.Show("Provide directory");
@@ -66,6 +63,29 @@ namespace ScreenCapture
                 timer.Start();
                 EnableUi();
             }
+        }
+
+        private void StopCapture()
+        {
+            timer.Stop();
+            EnableUi();
+        }
+
+        private void ShowSettings()
+        {
+            Show();
+            WindowState = FormWindowState.Normal;
+            notifyIcon.Visible = false;
+        }
+
+        public fmMain()
+        {
+            InitializeComponent();
+        }
+
+        private void btStart_Click(object sender, EventArgs e)
+        {
+            StartCapture();
         }
 
         private void btSelect_Click(object sender, EventArgs e)
@@ -78,19 +98,59 @@ namespace ScreenCapture
 
         private void btStop_Click(object sender, EventArgs e)
         {
-            timer.Stop();
-            EnableUi();
+            StopCapture();
         }
 
         private void fmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            timer.Stop();
-            EnableUi();
+            StopCapture();
         }
 
         private void timer_Tick(object sender, EventArgs e)
         {
             SaveBitmaps();
+        }
+
+        private void fmMain_Resize(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Minimized)
+            {
+                Hide();
+                notifyIcon.Visible = true;
+            }
+        }
+
+        private void notifyIcon_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+
+            }
+        }
+
+        private void notifyIcon_DoubleClick(object sender, EventArgs e)
+        {
+            ShowSettings();
+        }
+
+        private void miStart_Click(object sender, EventArgs e)
+        {
+            StartCapture();
+        }
+
+        private void miStop_Click(object sender, EventArgs e)
+        {
+            StopCapture();
+        }
+
+        private void miExit_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void miSettings_Click(object sender, EventArgs e)
+        {
+            ShowSettings();
         }
     }
 }

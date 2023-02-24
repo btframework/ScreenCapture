@@ -30,6 +30,7 @@ namespace ScreenCapture
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fmMain));
             this.btStart = new System.Windows.Forms.Button();
             this.laImageDirectory = new System.Windows.Forms.Label();
             this.edDirectory = new System.Windows.Forms.TextBox();
@@ -40,7 +41,15 @@ namespace ScreenCapture
             this.edInterval = new System.Windows.Forms.NumericUpDown();
             this.laSeconds = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
+            this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.miStart = new System.Windows.Forms.ToolStripMenuItem();
+            this.miStop = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.miExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.miSettings = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.edInterval)).BeginInit();
+            this.contextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // btStart
@@ -136,6 +145,59 @@ namespace ScreenCapture
             this.timer.Interval = 1;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
+            // notifyIcon
+            // 
+            this.notifyIcon.ContextMenuStrip = this.contextMenuStrip;
+            this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
+            this.notifyIcon.Text = "Screen capture";
+            this.notifyIcon.DoubleClick += new System.EventHandler(this.notifyIcon_DoubleClick);
+            this.notifyIcon.MouseClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon_MouseClick);
+            // 
+            // contextMenuStrip
+            // 
+            this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.miStart,
+            this.miStop,
+            this.miSettings,
+            this.toolStripSeparator1,
+            this.miExit});
+            this.contextMenuStrip.Name = "contextMenuStrip";
+            this.contextMenuStrip.Size = new System.Drawing.Size(126, 98);
+            // 
+            // miStart
+            // 
+            this.miStart.Name = "miStart";
+            this.miStart.Size = new System.Drawing.Size(125, 22);
+            this.miStart.Text = "Start";
+            this.miStart.Click += new System.EventHandler(this.miStart_Click);
+            // 
+            // miStop
+            // 
+            this.miStop.Enabled = false;
+            this.miStop.Name = "miStop";
+            this.miStop.Size = new System.Drawing.Size(125, 22);
+            this.miStop.Text = "Stop";
+            this.miStop.Click += new System.EventHandler(this.miStop_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(122, 6);
+            // 
+            // miExit
+            // 
+            this.miExit.Name = "miExit";
+            this.miExit.Size = new System.Drawing.Size(125, 22);
+            this.miExit.Text = "Exit";
+            this.miExit.Click += new System.EventHandler(this.miExit_Click);
+            // 
+            // miSettings
+            // 
+            this.miSettings.Name = "miSettings";
+            this.miSettings.Size = new System.Drawing.Size(125, 22);
+            this.miSettings.Text = "Settings...";
+            this.miSettings.Click += new System.EventHandler(this.miSettings_Click);
+            // 
             // fmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -152,9 +214,11 @@ namespace ScreenCapture
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "fmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Screen Captgure Settings";
+            this.Text = "Screen Capture Settings";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.fmMain_FormClosing);
+            this.Resize += new System.EventHandler(this.fmMain_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.edInterval)).EndInit();
+            this.contextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -172,6 +236,13 @@ namespace ScreenCapture
         private System.Windows.Forms.NumericUpDown edInterval;
         private System.Windows.Forms.Label laSeconds;
         private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.NotifyIcon notifyIcon;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem miStart;
+        private System.Windows.Forms.ToolStripMenuItem miStop;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem miExit;
+        private System.Windows.Forms.ToolStripMenuItem miSettings;
     }
 }
 
