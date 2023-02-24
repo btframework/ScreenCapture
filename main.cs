@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
@@ -20,12 +21,17 @@ namespace ScreenCapture
                 graphics.CopyFromScreen(rectangle.Left, rectangle.Top, 0, 0, rectangle.Size);
                 
                 result.Add(screen.DeviceName.Replace("\\", "").Replace(".", ""), bitmap);
+                
+                graphics.Dispose();
             }
             return result;
         }
 
         private void SaveBitmaps()
         {
+            if (!Directory.Exists(edDirectory.Text))
+                Directory.CreateDirectory(edDirectory.Text);
+
             Dictionary<String, Bitmap> bitmaps = CaptureScreen();
             if (bitmaps.Count > 0)
             {
@@ -33,10 +39,16 @@ namespace ScreenCapture
                 {
                     String screenName = picture.Key;
                     Bitmap bitmap = picture.Value;
-                    String fileName = edDirectory.Text + "\\_" + screenName +
-                        "_" + Environment.TickCount.ToString() + "_capture.jpg";
-                    bitmap.Save(fileName, ImageFormat.Jpeg);
-                    bitmap.Dispose();
+                    try
+                    {
+                        String fileName = edDirectory.Text + "\\_" + screenName +
+                                "_" + Environment.TickCount.ToString() + "_capture.jpg";
+                        bitmap.Save(fileName, ImageFormat.Jpeg);
+                    }
+                    finally
+                    {
+                        bitmap.Dispose();
+                    }
                 }
             }
             bitmaps.Clear();
@@ -59,7 +71,7 @@ namespace ScreenCapture
                 MessageBox.Show("Provide directory");
             else
             {
-                timer.Interval = (int)edInterval.Value;
+                timer.Interval = (int)edInterval.Value * 1000;
                 timer.Start();
                 EnableUi();
             }

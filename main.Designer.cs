@@ -45,9 +45,9 @@ namespace ScreenCapture
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.miStart = new System.Windows.Forms.ToolStripMenuItem();
             this.miStop = new System.Windows.Forms.ToolStripMenuItem();
+            this.miSettings = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.miExit = new System.Windows.Forms.ToolStripMenuItem();
-            this.miSettings = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.edInterval)).BeginInit();
             this.contextMenuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -179,6 +179,13 @@ namespace ScreenCapture
             this.miStop.Text = "Stop";
             this.miStop.Click += new System.EventHandler(this.miStop_Click);
             // 
+            // miSettings
+            // 
+            this.miSettings.Name = "miSettings";
+            this.miSettings.Size = new System.Drawing.Size(125, 22);
+            this.miSettings.Text = "Settings...";
+            this.miSettings.Click += new System.EventHandler(this.miSettings_Click);
+            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
@@ -190,13 +197,6 @@ namespace ScreenCapture
             this.miExit.Size = new System.Drawing.Size(125, 22);
             this.miExit.Text = "Exit";
             this.miExit.Click += new System.EventHandler(this.miExit_Click);
-            // 
-            // miSettings
-            // 
-            this.miSettings.Name = "miSettings";
-            this.miSettings.Size = new System.Drawing.Size(125, 22);
-            this.miSettings.Text = "Settings...";
-            this.miSettings.Click += new System.EventHandler(this.miSettings_Click);
             // 
             // fmMain
             // 
