@@ -1,0 +1,12 @@
+
+*.pdb
+obj/Release/.NETFramework,Version=v4.0.AssemblyAttributes.cs
+obj/Release/DesignTimeResolveAssemblyReferences.cache
+obj/Release/DesignTimeResolveAssemblyReferencesInput.cache
+obj/Release/ScreenCapture.csproj.AssemblyReference.cache
+obj/Release/ScreenCapture.csproj.CoreCompileInputs.cache
+obj/Release/ScreenCapture.csproj.FileListAbsolute.txt
+obj/Release/ScreenCapture.csproj.GenerateResource.cache
+obj/Release/ScreenCapture.exe
+obj/Release/ScreenCapture.fmMain.resources
+obj/Release/ScreenCapture.Properties.Resources.resources
