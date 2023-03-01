@@ -9,6 +9,8 @@ What does it do? Nothing special. it simple captures screen(s) with the specifie
 
 **NOTE**: This was created **just for fun**, I have not been paid for this project and did not win a bid.
 
+**It is free for non commercial and education use only. You CAN NOT use it in any commercial projects. For commercial use contact me at marina@btframework.com**
+
 This project was developed by [me](https://www.facebook.com/marina.petrichenko.1)
 
 Should you have any question you can contact me directly at marina@btframework.com
