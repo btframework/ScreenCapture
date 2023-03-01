@@ -1,15 +1,11 @@
 ﻿/*
  * Copyright (C) 2023 Marina Petrichenko
- * -------------------------------------
- *   marina@btframework.com
- *   https://www.facebook.com/marina.petrichenko.1
- *   
- *   It is free for non-commercial and/or education use only.
- *   
- *   If you use all or any part of this code in your commercial, non-commercial, education, open source
- *   or any other application your application/project/product/work source code must also be opened.
- *   
- *   If you want to use it in any kind of closed source product contact me and we discuss the price.
+ * 
+ * marina@btframework.com  
+ *   https://www.facebook.com/marina.petrichenko.1  
+ *   https://www.btframework.com
+ * 
+ * It is free for non-commercial and/or education use only.
  *   
  */
 
