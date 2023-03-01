@@ -7,6 +7,8 @@ What does it do? Nothing special. it simple captures screen(s) with the specifie
 
 .NET Framework 4, Visual Studio 2019, C#.
 
+**NOTE**: This was created **just for fun**, I have not been paid for this project and did not win a bid.
+
 This project was developed by [me](https://www.facebook.com/marina.petrichenko.1)
 
 Should you have any question you can contact me directly at marina@btframework.com
